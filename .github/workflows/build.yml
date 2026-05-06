@@ -1,0 +1,31 @@
+name: Build iOS App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Build for Simulator
+        run: |
+          xcodebuild build \
+            -project Thaeqaty.xcodeproj \
+            -scheme Thaeqaty \
+            -sdk iphonesimulator \
+            -configuration Debug \
+            -derivedDataPath build
+      
+      - name: Zip .app
+        run: |
+          cd build/Build/Products/Debug-iphonesimulator
+          zip -r app.zip Thaeqaty.app
+      
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: Thaeqaty-app
+          path: build/Build/Products/Debug-iphonesimulator/app.zip
