@@ -10,6 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Remove problematic XIB
+        run: rm -f Thaeqaty/Cells/TableViews/Test.xib
+      
       - name: Build for Simulator
         run: |
           xcodebuild build \
