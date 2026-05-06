@@ -1,0 +1,17 @@
+//
+//  ThaeqatyTests.swift
+//  ThaeqatyTests
+//
+//  Created by Hussain Ali on 08/11/1447 AH.
+//
+
+import Testing
+@testable import Thaeqaty
+
+struct ThaeqatyTests {
+
+    @Test func example() async throws {
+        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    }
+
+}
